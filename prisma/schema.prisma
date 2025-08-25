@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ArtItem {
+  id          Int      @id @default(autoincrement())
+  type        String
+  title       String
+  description String?
+  fileUrl     String
+  linkUrl     String?
+  createdAt   DateTime @default(now())
+}
